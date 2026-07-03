@@ -60,7 +60,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"Ahmed User\",\n  \"email\": \"ahmed@example.com\",\n  \"password\": \"password123\"\n}"
+              "raw": "{\n  \"name\": \"Abdelfatah User\",\n  \"email\": \"abdelfatah@example.com\",\n  \"password\": \"password123\"\n}"
             },
             "url": {
               "raw": "{{baseUrl}}/auth/register",
@@ -101,7 +101,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"email\": \"ahmed@example.com\",\n  \"password\": \"password123\"\n}"
+              "raw": "{\n  \"email\": \"abdelfatah@example.com\",\n  \"password\": \"password123\"\n}"
             },
             "url": {
               "raw": "{{baseUrl}}/auth/login",
@@ -166,7 +166,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"Ahmed Updated\",\n  \"email\": \"ahmed.updated@example.com\"\n}"
+              "raw": "{\n  \"name\": \"Abdelfatah Updated\",\n  \"email\": \"abdelfatah.updated@example.com\"\n}"
             },
             "url": {
               "raw": "{{baseUrl}}/auth/profile",
