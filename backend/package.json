@@ -1,0 +1,28 @@
+{
+  "name": "workspace-flow-server",
+  "version": "1.0.0",
+  "description": "Workspace Flow — Backend API Server",
+  "author": "Abdelfatah",
+  "license": "ISC",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.5.2",
+    "express-xss-sanitizer": "^2.0.2",
+    "helmet": "^8.2.0",
+    "hpp": "^0.2.3",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.6.3",
+    "morgan": "^1.11.0",
+    "nodemon": "^3.1.14"
+  }
+}

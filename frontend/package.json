@@ -1,0 +1,33 @@
+{
+  "name": "workspace-flow-client",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Workspace Flow — Modern SaaS workspace management",
+  "author": "Abdelfatah",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.4.0",
+    "@reduxjs/toolkit": "^2.12.0",
+    "@tailwindcss/vite": "^4.3.2",
+    "@tanstack/react-query": "^5.101.2",
+    "axios": "^1.18.1",
+    "lucide-react": "^1.22.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-hook-form": "^7.80.0",
+    "react-hot-toast": "^2.5.2",
+    "react-redux": "^9.3.0",
+    "react-router-dom": "^7.18.1",
+    "tailwindcss": "^4.3.2",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.2",
+    "vite": "^8.1.0"
+  }
+}
