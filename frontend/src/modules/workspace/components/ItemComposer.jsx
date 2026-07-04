@@ -65,7 +65,7 @@ const ItemComposer = ({ initialData, onSubmit, isLoading = false, onCancel }) =>
       {/* Title */}
       <FormField
         label="Title"
-        placeholder="Give your item a clear title…"
+        placeholder="Give your note a title…"
         error={errors.title?.message}
         {...register('title')}
       />
@@ -74,7 +74,7 @@ const ItemComposer = ({ initialData, onSubmit, isLoading = false, onCancel }) =>
       <FormField
         label="Content"
         as="textarea"
-        placeholder="Write your content here…"
+        placeholder="Write your thoughts here…"
         error={errors.content?.message}
         {...register('content')}
       />
@@ -100,7 +100,7 @@ const ItemComposer = ({ initialData, onSubmit, isLoading = false, onCancel }) =>
               {parsedTags.map((tag, i) => (
                 <span
                   key={i}
-                  className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary-50 dark:bg-primary-950/40 text-primary-600 dark:text-primary-400 text-xs font-medium"
+                  className="inline-flex items-center gap-1 px-2 py-0.5 rounded border border-surface-300 dark:border-surface-600 bg-surface-100 dark:bg-surface-800 text-surface-600 dark:text-surface-400 text-xs font-body"
                 >
                   <Tag className="w-3 h-3" />
                   {tag}
@@ -112,17 +112,17 @@ const ItemComposer = ({ initialData, onSubmit, isLoading = false, onCancel }) =>
       </div>
 
       {/* Status + Pin */}
-      <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-2 border-t border-surface-100 dark:border-surface-800">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-2 border-t border-surface-200 dark:border-[#5D5246]/50">
         <div className="flex items-center gap-3">
-          <label className="text-sm font-semibold text-surface-700 dark:text-surface-300">
+          <label className="text-sm font-heading font-semibold text-surface-700 dark:text-surface-400">
             Status
           </label>
           <select
             {...register('status')}
-            className="px-3 py-2 rounded-xl border border-surface-200 dark:border-surface-700 bg-white dark:bg-surface-900 text-sm text-surface-900 dark:text-surface-100 focus:outline-none focus:ring-2 focus:ring-primary-500 cursor-pointer"
+            className="px-3 py-2 rounded-lg border border-surface-300 dark:border-[#5D5246] bg-paper-50 dark:bg-[#2A241F] text-sm font-body text-surface-800 dark:text-paper-50 focus:outline-none focus:ring-2 focus:ring-surface-400/50 cursor-pointer"
           >
-            <option value="private">🔒 Private</option>
-            <option value="public">🌐 Public</option>
+            <option value="private">Private</option>
+            <option value="public">Public</option>
           </select>
         </div>
 
@@ -130,11 +130,11 @@ const ItemComposer = ({ initialData, onSubmit, isLoading = false, onCancel }) =>
           <input
             type="checkbox"
             {...register('is_pinned')}
-            className="w-4 h-4 rounded border-surface-300 dark:border-surface-600 text-primary-600 focus:ring-primary-500 cursor-pointer"
+            className="w-4 h-4 rounded border-surface-300 dark:border-surface-600 text-surface-600 dark:text-surface-400 focus:ring-surface-400/50 cursor-pointer"
           />
-          <span className="flex items-center gap-1.5 text-sm font-medium text-surface-700 dark:text-surface-300 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+          <span className="flex items-center gap-1.5 text-sm font-body text-surface-700 dark:text-surface-400 group-hover:text-surface-900 dark:group-hover:text-paper-50 transition-colors">
             <Pin className="w-4 h-4" />
-            Pin this item
+            Pin this note
           </span>
         </label>
 
@@ -145,7 +145,7 @@ const ItemComposer = ({ initialData, onSubmit, isLoading = false, onCancel }) =>
             </ActionButton>
           )}
           <ActionButton type="submit" size="sm" isLoading={isLoading}>
-            {initialData ? 'Save Changes' : 'Create Item'}
+            {initialData ? 'Save Changes' : 'Create Note'}
           </ActionButton>
         </div>
       </div>

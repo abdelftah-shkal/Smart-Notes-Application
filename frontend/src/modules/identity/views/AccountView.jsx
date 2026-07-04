@@ -6,7 +6,7 @@
 
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { UserCircle, Mail, Calendar, Shield } from 'lucide-react';
+import { User, Mail, Calendar, Shield } from 'lucide-react';
 
 const AccountView = () => {
   const account = useSelector((s) => s.identity.account);
@@ -24,19 +24,19 @@ const AccountView = () => {
   return (
     <div className="max-w-2xl mx-auto space-y-6 animate-slide-up">
       {/* Profile Card */}
-      <div className="glass-card dark:bg-surface-900/60 rounded-2xl p-6 shadow-md">
+      <div className="vintage-card p-6">
         <div className="flex items-center gap-5">
-          <div className="flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-primary-500 to-violet-600 text-white text-2xl font-extrabold shadow-lg select-none">
+          <div className="flex items-center justify-center w-20 h-20 rounded-lg bg-surface-800 dark:bg-surface-700 border border-surface-400 dark:border-surface-600 text-paper-50 text-2xl font-heading font-bold select-none">
             {initials}
           </div>
           <div>
-            <h2 className="text-xl font-bold text-surface-900 dark:text-white">
+            <h2 className="text-xl font-heading font-bold text-surface-800 dark:text-paper-50">
               {account?.name || '—'}
             </h2>
-            <p className="text-sm text-surface-500 dark:text-surface-400 mt-0.5">
+            <p className="text-sm font-body text-surface-500 dark:text-surface-500 mt-0.5">
               {account?.email || '—'}
             </p>
-            <span className="mt-2 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-accent-50 dark:bg-accent-500/10 text-accent-600 dark:text-accent-400 text-xs font-semibold">
+            <span className="mt-2 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-surface-300 dark:border-surface-600 text-surface-600 dark:text-surface-400 text-xs font-body">
               <Shield className="w-3 h-3" /> Active Account
             </span>
           </div>
@@ -44,14 +44,14 @@ const AccountView = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-1 bg-surface-100 dark:bg-surface-900 p-1 rounded-xl w-fit">
+      <div className="flex gap-1 bg-surface-100 dark:bg-surface-800 p-1 rounded-lg border border-surface-300 dark:border-[#5D5246] w-fit">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 cursor-pointer ${
+            className={`px-4 py-2 rounded-lg text-sm font-body transition-all duration-200 cursor-pointer ${
               activeTab === tab.id
-                ? 'bg-white dark:bg-surface-800 text-primary-600 dark:text-primary-400 shadow-sm'
+                ? 'bg-paper-50 dark:bg-[#2A241F] text-surface-800 dark:text-paper-50 border border-surface-300 dark:border-surface-600'
                 : 'text-surface-500 dark:text-surface-400 hover:text-surface-700 dark:hover:text-surface-300'
             }`}
           >
@@ -62,40 +62,40 @@ const AccountView = () => {
 
       {/* Tab Content */}
       {activeTab === 'profile' && (
-        <div className="glass-card dark:bg-surface-900/60 rounded-2xl p-6 shadow-md space-y-4 animate-fade-in">
-          <h3 className="text-base font-bold text-surface-900 dark:text-white mb-4">
+        <div className="vintage-card p-6 space-y-4 animate-fade-in">
+          <h3 className="text-base font-heading font-bold text-surface-800 dark:text-paper-50 mb-4">
             Profile Information
           </h3>
 
-          <InfoRow icon={UserCircle} label="Full Name" value={account?.name || '—'} />
+          <InfoRow icon={User} label="Full Name" value={account?.name || '—'} />
           <InfoRow icon={Mail}       label="Email"     value={account?.email || '—'} />
-          <InfoRow icon={Calendar}   label="Member Since" value="Workspace Flow Member" />
+          <InfoRow icon={Calendar}   label="Member Since" value="Notebook Member" />
 
-          <p className="text-xs text-surface-400 dark:text-surface-500 pt-2 border-t border-surface-200 dark:border-surface-700">
+          <p className="text-xs font-body text-surface-400 dark:text-surface-500 pt-2 border-t border-surface-300 dark:border-[#5D5246]">
             To update your profile information, please contact support or use the API directly.
           </p>
         </div>
       )}
 
       {activeTab === 'security' && (
-        <div className="glass-card dark:bg-surface-900/60 rounded-2xl p-6 shadow-md animate-fade-in space-y-4">
-          <h3 className="text-base font-bold text-surface-900 dark:text-white mb-1">
+        <div className="vintage-card p-6 animate-fade-in space-y-4">
+          <h3 className="text-base font-heading font-bold text-surface-800 dark:text-paper-50 mb-1">
             Security Settings
           </h3>
-          <p className="text-sm text-surface-500 dark:text-surface-400">
+          <p className="text-sm font-body text-surface-500 dark:text-surface-500">
             Your account is protected with a hashed password. Keep your credentials safe.
           </p>
 
-          <div className="p-4 rounded-xl bg-surface-50 dark:bg-surface-800/60 border border-surface-200 dark:border-surface-700">
+          <div className="p-4 rounded-lg vintage-card-sm">
             <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-accent-50 dark:bg-accent-500/10">
-                <Shield className="w-5 h-5 text-accent-600 dark:text-accent-400" />
+              <div className="p-2 rounded-lg bg-surface-100 dark:bg-surface-800 border border-surface-300 dark:border-surface-600">
+                <Shield className="w-5 h-5 text-surface-600 dark:text-surface-400" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-surface-800 dark:text-surface-200">
+                <p className="text-sm font-heading font-semibold text-surface-700 dark:text-paper-50">
                   Password Protected
                 </p>
-                <p className="text-xs text-surface-500 dark:text-surface-400">
+                <p className="text-xs font-body text-surface-500 dark:text-surface-500">
                   Your password is securely hashed and stored.
                 </p>
               </div>
@@ -108,15 +108,15 @@ const AccountView = () => {
 };
 
 const InfoRow = ({ icon: Icon, label, value }) => (
-  <div className="flex items-center gap-4 py-3 border-b border-surface-100 dark:border-surface-800 last:border-0">
-    <div className="p-2 rounded-lg bg-surface-100 dark:bg-surface-800 text-surface-500 dark:text-surface-400 shrink-0">
+  <div className="flex items-center gap-4 py-3 border-b border-surface-200 dark:border-[#5D5246]/50 last:border-0">
+    <div className="p-2 rounded-lg bg-surface-100 dark:bg-surface-800 border border-surface-300 dark:border-surface-600 text-surface-500 dark:text-surface-400 shrink-0">
       <Icon className="w-4 h-4" />
     </div>
     <div className="min-w-0">
-      <p className="text-xs text-surface-400 dark:text-surface-500 font-medium uppercase tracking-wider">
+      <p className="text-xs font-body text-surface-400 dark:text-surface-500 font-medium uppercase tracking-wider">
         {label}
       </p>
-      <p className="text-sm font-semibold text-surface-800 dark:text-surface-200 truncate">
+      <p className="text-sm font-heading font-semibold text-surface-700 dark:text-paper-50 truncate">
         {value}
       </p>
     </div>

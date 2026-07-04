@@ -34,8 +34,8 @@ const ItemInspector = () => {
     discard(
       { itemId: id },
       {
-        onSuccess: () => { toast.success('Item deleted.'); navigate('/notes'); },
-        onError:   () => toast.error('Failed to delete item.'),
+        onSuccess: () => { toast.success('Note deleted.'); navigate('/notes'); },
+        onError:   () => toast.error('Failed to delete note.'),
       }
     );
   };
@@ -43,7 +43,7 @@ const ItemInspector = () => {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center py-24">
-        <Loader2 className="w-8 h-8 text-primary-500 animate-spin" />
+        <Loader2 className="w-8 h-8 text-surface-500 animate-spin" />
       </div>
     );
   }
@@ -51,9 +51,9 @@ const ItemInspector = () => {
   if (isError || !item) {
     return (
       <div className="text-center py-24 space-y-3">
-        <p className="text-danger-500 font-semibold">Item not found.</p>
+        <p className="text-danger-500 font-body font-semibold">Note not found.</p>
         <Link to="/notes">
-          <ActionButton variant="outline" size="sm" icon={ArrowLeft}>Back to Workspace</ActionButton>
+          <ActionButton variant="outline" size="sm" icon={ArrowLeft}>Back to Notes</ActionButton>
         </Link>
       </div>
     );
@@ -67,7 +67,7 @@ const ItemInspector = () => {
       <div className="flex items-center justify-between">
         <button
           onClick={() => navigate(-1)}
-          className="flex items-center gap-1.5 text-sm text-surface-500 dark:text-surface-400 hover:text-surface-800 dark:hover:text-white transition-colors cursor-pointer"
+          className="flex items-center gap-1.5 text-sm font-body text-surface-500 dark:text-surface-400 hover:text-surface-700 dark:hover:text-paper-50 transition-colors cursor-pointer"
         >
           <ArrowLeft className="w-4 h-4" /> Back
         </button>
@@ -82,37 +82,37 @@ const ItemInspector = () => {
       </div>
 
       {/* Main card */}
-      <div className="glass-card dark:bg-surface-900/60 rounded-2xl overflow-hidden shadow-md">
+      <div className="vintage-card overflow-hidden">
         {/* Accent bar */}
-        <div className={`h-1.5 w-full ${colors.bar || 'bg-primary-500'}`} />
+        <div className={`h-1.5 w-full ${colors.bar}`} />
 
         <div className="p-6 md:p-8 space-y-6">
           {/* Title + badges */}
           <div>
             <div className="flex flex-wrap items-center gap-2 mb-3">
-              <span className={`px-2.5 py-1 rounded-full text-xs font-bold ${colors.bg} ${colors.text}`}>
+              <span className={`px-2.5 py-1 rounded text-xs font-body border ${colors.border} ${colors.bg} ${colors.text}`}>
                 {item.category}
               </span>
-              <span className={`flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold ${
+              <span className={`flex items-center gap-1 px-2.5 py-1 rounded text-xs font-body border ${
                 item.status === 'public'
-                  ? 'bg-accent-50 dark:bg-accent-500/10 text-accent-700 dark:text-accent-400'
-                  : 'bg-surface-100 dark:bg-surface-800 text-surface-500 dark:text-surface-400'
+                  ? 'border-surface-400 bg-surface-100 dark:bg-surface-800 text-surface-600 dark:text-surface-400'
+                  : 'border-surface-300 bg-surface-100 dark:bg-surface-800 text-surface-500 dark:text-surface-400'
               }`}>
                 {item.status === 'public' ? <Globe className="w-3 h-3" /> : <Lock className="w-3 h-3" />}
                 {item.status}
               </span>
               {item.is_pinned && (
-                <span className="flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-violet-50 dark:bg-violet-950/40 text-violet-600 dark:text-violet-400">
-                  <Pin className="w-3 h-3 fill-violet-500" /> Pinned
+                <span className="flex items-center gap-1 px-2.5 py-1 rounded text-xs font-body border border-surface-300 dark:border-surface-600 bg-surface-100 dark:bg-surface-800 text-surface-600 dark:text-surface-400">
+                  <Pin className="w-3 h-3" /> Pinned
                 </span>
               )}
             </div>
 
-            <h1 className="text-2xl md:text-3xl font-extrabold text-surface-900 dark:text-white leading-snug">
+            <h1 className="text-2xl md:text-3xl font-heading font-bold text-surface-800 dark:text-paper-50 leading-snug">
               {item.title}
             </h1>
 
-            <div className="flex items-center gap-1.5 mt-2 text-xs text-surface-400 dark:text-surface-500">
+            <div className="flex items-center gap-1.5 mt-2 text-xs font-body text-surface-400 dark:text-surface-500">
               <Calendar className="w-3.5 h-3.5" />
               <span>Created {fmt(item.createdAt)}</span>
               {item.updatedAt !== item.createdAt && (
@@ -122,19 +122,19 @@ const ItemInspector = () => {
           </div>
 
           {/* Divider */}
-          <hr className="border-surface-100 dark:border-surface-800" />
+          <hr className="border-surface-200 dark:border-[#5D5246]/50" />
 
           {/* Content */}
-          <div className="text-surface-700 dark:text-surface-300 leading-relaxed whitespace-pre-wrap text-sm md:text-base">
+          <div className="font-body text-surface-700 dark:text-surface-300 leading-relaxed whitespace-pre-wrap text-sm md:text-base">
             {item.content}
           </div>
 
           {/* Tags */}
           {item.tags?.length > 0 && (
-            <div className="pt-4 border-t border-surface-100 dark:border-surface-800">
+            <div className="pt-4 border-t border-surface-200 dark:border-[#5D5246]/50">
               <div className="flex items-center gap-2 mb-2">
                 <Tag className="w-4 h-4 text-surface-400" />
-                <span className="text-xs font-semibold text-surface-500 dark:text-surface-400 uppercase tracking-wider">
+                <span className="text-xs font-body text-surface-500 dark:text-surface-400 uppercase tracking-wider">
                   Tags
                 </span>
               </div>
@@ -142,7 +142,7 @@ const ItemInspector = () => {
                 {item.tags.map((tag, i) => (
                   <span
                     key={i}
-                    className="px-3 py-1 rounded-full bg-surface-100 dark:bg-surface-800 text-surface-600 dark:text-surface-300 text-xs font-medium"
+                    className="px-3 py-1 rounded border border-surface-300 dark:border-surface-600 bg-surface-100 dark:bg-surface-800 text-surface-600 dark:text-surface-400 text-xs font-body"
                   >
                     #{tag}
                   </span>
@@ -154,8 +154,8 @@ const ItemInspector = () => {
       </div>
 
       {/* Delete confirmation */}
-      <Overlay isOpen={showDelete} onClose={() => setShowDelete(false)} title="Delete Item" size="sm">
-        <p className="text-sm text-surface-600 dark:text-surface-400 mb-6">
+      <Overlay isOpen={showDelete} onClose={() => setShowDelete(false)} title="Delete Note" size="sm">
+        <p className="text-sm font-body text-surface-500 dark:text-surface-400 mb-6">
           Are you sure you want to permanently delete <strong>"{item.title}"</strong>? This action cannot be undone.
         </p>
         <div className="flex gap-3 justify-end">

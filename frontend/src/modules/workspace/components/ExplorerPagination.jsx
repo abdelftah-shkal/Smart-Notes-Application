@@ -9,7 +9,6 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 const ExplorerPagination = ({ currentPage, totalPages, onPageChange }) => {
   if (totalPages <= 1) return null;
 
-  // Build visible page numbers (show max 5 pages with ellipsis logic)
   const getPages = () => {
     if (totalPages <= 7) return Array.from({ length: totalPages }, (_, i) => i + 1);
     const pages = [];
@@ -25,17 +24,17 @@ const ExplorerPagination = ({ currentPage, totalPages, onPageChange }) => {
   };
 
   const btnBase =
-    'flex items-center justify-center w-9 h-9 rounded-xl text-sm font-semibold transition-all duration-150 cursor-pointer disabled:opacity-40 disabled:pointer-events-none';
+    'flex items-center justify-center w-9 h-9 rounded-lg text-sm font-body transition-all duration-150 cursor-pointer disabled:opacity-40 disabled:pointer-events-none';
   const inactive =
-    'text-surface-600 dark:text-surface-300 border border-surface-200 dark:border-surface-700 hover:bg-surface-100 dark:hover:bg-surface-800';
+    'text-surface-600 dark:text-surface-400 border border-surface-300 dark:border-[#5D5246] hover:bg-surface-100 dark:hover:bg-surface-800';
   const active =
-    'bg-gradient-to-r from-primary-600 to-violet-600 text-white shadow-md';
+    'bg-surface-100 dark:bg-surface-800 text-surface-800 dark:text-paper-50 border border-surface-400 dark:border-surface-500';
 
   return (
-    <div className="flex items-center justify-between pt-6 mt-2 border-t border-surface-200 dark:border-surface-800">
-      <p className="text-sm text-surface-500 dark:text-surface-400 hidden sm:block">
-        Page <span className="font-bold text-surface-800 dark:text-surface-200">{currentPage}</span> of{' '}
-        <span className="font-bold text-surface-800 dark:text-surface-200">{totalPages}</span>
+    <div className="flex items-center justify-between pt-6 mt-2 border-t border-surface-200 dark:border-[#5D5246]/50">
+      <p className="text-sm font-body text-surface-500 dark:text-surface-500 hidden sm:block">
+        Page <span className="font-bold text-surface-700 dark:text-paper-50">{currentPage}</span> of{' '}
+        <span className="font-bold text-surface-700 dark:text-paper-50">{totalPages}</span>
       </p>
 
       <nav className="flex items-center gap-1">

@@ -33,11 +33,9 @@ const SessionLoader = () => {
   if (isLoading && accessToken) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-surface-50 dark:bg-surface-950">
-        <div className="relative">
-          <div className="w-14 h-14 rounded-full border-4 border-primary-200 dark:border-primary-900 animate-spin border-t-primary-600" />
-        </div>
-        <p className="mt-5 text-sm text-surface-500 dark:text-surface-400 font-medium">
-          Verifying your session…
+        <div className="w-14 h-14 rounded-full border-2 border-surface-300 dark:border-surface-600 animate-spin border-t-surface-600 dark:border-t-surface-400" />
+        <p className="mt-5 text-sm font-body text-surface-500 dark:text-surface-500">
+          Opening your notebook…
         </p>
       </div>
     );

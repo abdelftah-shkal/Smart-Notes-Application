@@ -71,7 +71,7 @@ const WorkspaceExplorer = () => {
       <ExplorerHeader totalCount={allItems.length} />
 
       {/* Search — sticky */}
-      <div className="sticky top-16 z-10 pt-1 pb-2 bg-surface-50/80 dark:bg-surface-950/80 backdrop-blur-sm -mx-4 lg:-mx-6 px-4 lg:px-6">
+      <div className="sticky top-16 z-10 pt-1 pb-2 bg-surface-50/80 dark:bg-surface-950/80 -mx-4 lg:-mx-6 px-4 lg:px-6">
         <ExplorerSearch value={search} onChange={handleFilterChange(setSearch)} />
       </div>
 
@@ -91,7 +91,7 @@ const WorkspaceExplorer = () => {
         <ExplorerSkeleton count={6} />
       ) : isError ? (
         <div className="text-center py-16">
-          <p className="text-danger-500 font-semibold mb-3">Failed to load items.</p>
+          <p className="text-danger-500 font-body font-semibold mb-3">Failed to load notes.</p>
           <ActionButton variant="outline" onClick={() => refetch()}>Retry</ActionButton>
         </div>
       ) : pagedItems.length === 0 ? (
@@ -113,11 +113,11 @@ const WorkspaceExplorer = () => {
       <Overlay
         isOpen={!!deleteId}
         onClose={() => setDeleteId(null)}
-        title="Delete Item"
+        title="Delete Note"
         size="sm"
       >
-        <p className="text-sm text-surface-600 dark:text-surface-400 mb-6">
-          Are you sure you want to permanently delete this item? This action cannot be undone.
+        <p className="text-sm font-body text-surface-500 dark:text-surface-400 mb-6">
+          Are you sure you want to permanently delete this note? This action cannot be undone.
         </p>
         <div className="flex gap-3 justify-end">
           <ActionButton variant="outline" size="sm" onClick={() => setDeleteId(null)} disabled={isDeleting}>

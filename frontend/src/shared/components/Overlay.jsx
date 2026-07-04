@@ -32,22 +32,22 @@ const Overlay = ({ isOpen, onClose, title, children, size = 'md' }) => {
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-fade-in">
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-surface-950/50 backdrop-blur-sm"
+        className="absolute inset-0 bg-surface-950/40"
         onClick={onClose}
       />
 
       {/* Panel */}
       <div
-        className={`relative w-full ${maxWidth} glass-card dark:bg-surface-900/80 rounded-2xl shadow-2xl z-10 animate-scale-in overflow-hidden`}
+        className={`relative w-full ${maxWidth} vintage-card z-10 animate-scale-in overflow-hidden`}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-surface-200 dark:border-surface-700/60">
-          <h2 className="text-lg font-bold text-surface-900 dark:text-surface-50">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-surface-300 dark:border-[#5D5246]">
+          <h2 className="text-lg font-heading font-bold text-surface-800 dark:text-paper-50">
             {title}
           </h2>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-surface-400 hover:text-surface-700 dark:hover:text-surface-200 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors cursor-pointer"
+            className="p-1.5 rounded-lg text-surface-400 hover:text-surface-700 dark:hover:text-surface-300 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>

@@ -14,6 +14,7 @@ const PrimaryLayout = () => {
 
   return (
     <div className="flex h-screen overflow-hidden bg-surface-50 dark:bg-surface-950">
+
       {/* Sidebar */}
       <Sidebar
         isOpen={sidebarOpen}

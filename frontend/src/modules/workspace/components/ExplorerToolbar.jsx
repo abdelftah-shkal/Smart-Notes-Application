@@ -8,7 +8,7 @@ import React from 'react';
 import { X } from 'lucide-react';
 
 const Chip = ({ label, onRemove }) => (
-  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary-50 dark:bg-primary-950/40 text-primary-700 dark:text-primary-300 text-xs font-semibold">
+  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded border border-surface-300 dark:border-surface-600 bg-surface-100 dark:bg-surface-800 text-surface-600 dark:text-surface-400 text-xs font-body">
     {label}
     <button onClick={onRemove} className="hover:text-danger-500 transition-colors cursor-pointer">
       <X className="w-3 h-3" />
@@ -31,13 +31,13 @@ const ExplorerToolbar = ({
 
   return (
     <div className="flex flex-wrap items-center gap-2">
-      <span className="text-xs text-surface-400 dark:text-surface-500 font-medium">Active:</span>
+      <span className="text-xs font-body text-surface-400 dark:text-surface-500">Active:</span>
       {chips.map((chip) => (
         <Chip key={chip.label} {...chip} />
       ))}
       <button
         onClick={() => { onSearchChange(''); onCategoryChange(''); onStatusChange(''); }}
-        className="text-xs text-surface-400 hover:text-danger-500 dark:hover:text-danger-400 transition-colors font-medium cursor-pointer ml-1"
+        className="text-xs font-body text-surface-400 hover:text-danger-500 dark:hover:text-danger-400 transition-colors cursor-pointer ml-1"
       >
         Clear all
       </button>

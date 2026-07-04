@@ -31,22 +31,23 @@ const AppProviders = ({ children }) => {
             toastOptions={{
               duration: 3500,
               style: {
-                borderRadius: '12px',
-                fontFamily: 'Inter, sans-serif',
+                borderRadius: '8px',
+                fontFamily: 'Crimson Text, Georgia, serif',
                 fontSize: '14px',
+                padding: '12px 16px',
               },
               success: {
                 style: {
-                  background: '#f0fdf4',
-                  color: '#166534',
-                  border: '1px solid #bbf7d0',
+                  background: '#FDF7EC',
+                  color: '#2D2A26',
+                  border: '1px solid #BFAE92',
                 },
               },
               error: {
                 style: {
-                  background: '#fff1f2',
-                  color: '#9f1239',
-                  border: '1px solid #fecdd3',
+                  background: '#F8ECE8',
+                  color: '#8A4438',
+                  border: '1px solid #C47060',
                 },
               },
             }}

@@ -18,13 +18,13 @@ import ActionButton      from '@/shared/components/ActionButton';
 /* ─── Skeleton ─────────────────────────────────────────────────────────── */
 const DashboardSkeleton = () => (
   <div className="space-y-6 animate-pulse">
-    <div className="h-36 skeleton rounded-2xl" />
+    <div className="h-36 rounded-lg bg-surface-100 dark:bg-surface-800 border border-surface-300 dark:border-[#5D5246]" />
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-      {[...Array(4)].map((_, i) => <div key={i} className="h-24 skeleton rounded-2xl" />)}
+      {[...Array(4)].map((_, i) => <div key={i} className="h-24 rounded-lg bg-surface-100 dark:bg-surface-800 border border-surface-300 dark:border-[#5D5246]" />)}
     </div>
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-      <div className="lg:col-span-2 h-56 skeleton rounded-2xl" />
-      <div className="h-56 skeleton rounded-2xl" />
+      <div className="lg:col-span-2 h-56 rounded-lg bg-surface-100 dark:bg-surface-800 border border-surface-300 dark:border-[#5D5246]" />
+      <div className="h-56 rounded-lg bg-surface-100 dark:bg-surface-800 border border-surface-300 dark:border-[#5D5246]" />
     </div>
   </div>
 );
@@ -62,29 +62,23 @@ const CommandCenterView = () => {
     <div className="space-y-6 animate-slide-up">
 
       {/* ── Welcome Banner ─────────────────────────────────────────────── */}
-      <div className="gradient-primary rounded-2xl p-6 md:p-8 text-white relative overflow-hidden shadow-lg">
-        <div className="absolute -top-12 -right-12 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none" />
-        <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-violet-300/10 rounded-full blur-2xl pointer-events-none" />
+      <div className="vintage-card p-6 md:p-8 relative overflow-hidden">
         <div className="relative z-10">
-          <p className="text-white/70 text-sm font-medium mb-1">{today}</p>
-          <h2 className="text-2xl md:text-3xl font-extrabold mb-1">
+          <p className="text-surface-400 dark:text-surface-500 text-sm font-body mb-1">{today}</p>
+          <h2 className="text-2xl md:text-3xl font-heading font-bold text-surface-800 dark:text-paper-50 mb-1">
             {greeting()}, {account?.name?.split(' ')[0] || 'there'}!
           </h2>
-          <p className="text-white/75 text-sm mb-5">
-            You have <span className="font-bold text-white">{items.length}</span> item{items.length !== 1 ? 's' : ''} in your workspace.
+          <p className="text-surface-500 dark:text-surface-500 text-sm font-body mb-5">
+            You have <span className="font-bold text-surface-700 dark:text-paper-50">{items.length}</span> note{items.length !== 1 ? 's' : ''} in your notebook.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link to="/notes/new">
-              <ActionButton variant="secondary" size="sm" icon={PenSquare}>
-                New Item
+              <ActionButton variant="primary" size="sm" icon={PenSquare}>
+                New Note
               </ActionButton>
             </Link>
             <Link to="/notes">
-              <ActionButton
-                size="sm"
-                icon={LayoutGrid}
-                className="bg-white/15 hover:bg-white/25 text-white border border-white/30"
-              >
+              <ActionButton variant="secondary" size="sm" icon={LayoutGrid}>
                 Browse All
               </ActionButton>
             </Link>

@@ -16,7 +16,7 @@ const ExplorerSearch = ({ value, onChange }) => (
       value={value}
       onChange={(e) => onChange(e.target.value)}
       placeholder="Search titles or content…"
-      className="w-full pl-10 pr-10 py-2.5 rounded-xl border border-surface-200 dark:border-surface-700 bg-white dark:bg-surface-900 text-surface-900 dark:text-surface-100 placeholder-surface-400 dark:placeholder-surface-500 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 shadow-sm"
+      className="w-full pl-10 pr-10 py-2.5 rounded-lg border border-surface-300 dark:border-[#5D5246] bg-paper-50 dark:bg-[#2A241F] text-surface-800 dark:text-paper-50 placeholder-surface-400 dark:placeholder-surface-500 text-sm font-body focus:outline-none focus:ring-2 focus:ring-surface-400/50 focus:border-surface-400 transition-all duration-200"
     />
     {value && (
       <button

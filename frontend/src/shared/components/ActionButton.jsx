@@ -8,15 +8,15 @@ import React from 'react';
 
 const VARIANTS = {
   primary:
-    'bg-gradient-to-r from-primary-600 to-violet-600 hover:from-primary-700 hover:to-violet-700 text-white shadow-md hover:shadow-lg focus:ring-primary-500',
+    'bg-surface-100 hover:bg-surface-200 dark:bg-surface-800 dark:hover:bg-surface-700 text-surface-800 dark:text-paper-50 border border-surface-400 dark:border-surface-600 shadow-sm hover:shadow-md focus:ring-surface-400',
   secondary:
-    'bg-surface-100 hover:bg-surface-200 dark:bg-surface-800 dark:hover:bg-surface-700 text-surface-800 dark:text-surface-100 focus:ring-surface-400',
+    'bg-paper-50 hover:bg-surface-100 dark:bg-[#2A241F] dark:hover:bg-surface-800 text-surface-700 dark:text-paper-50 border border-surface-400 dark:border-surface-600 focus:ring-surface-400',
   danger:
-    'bg-gradient-to-r from-danger-500 to-rose-600 hover:from-danger-600 hover:to-rose-700 text-white shadow-md hover:shadow-lg focus:ring-danger-500',
+    'bg-danger-50 hover:bg-danger-100 dark:bg-danger-600/20 dark:hover:bg-danger-600/30 text-danger-600 dark:text-danger-400 border border-danger-400 dark:border-danger-600 shadow-sm hover:shadow-md focus:ring-danger-400',
   outline:
-    'border border-surface-300 dark:border-surface-600 bg-transparent hover:bg-surface-50 dark:hover:bg-surface-800 text-surface-700 dark:text-surface-300 focus:ring-primary-500',
+    'border border-surface-300 dark:border-surface-600 bg-transparent hover:bg-surface-100 dark:hover:bg-surface-800 text-surface-600 dark:text-surface-400 focus:ring-surface-400',
   ghost:
-    'bg-transparent hover:bg-surface-100 dark:hover:bg-surface-800 text-surface-700 dark:text-surface-300 focus:ring-primary-500',
+    'bg-transparent hover:bg-surface-100 dark:hover:bg-surface-800 text-surface-600 dark:text-surface-400 focus:ring-surface-400',
 };
 
 const SIZES = {
@@ -36,7 +36,7 @@ const ActionButton = ({
   ...props
 }) => {
   const base =
-    'inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none cursor-pointer select-none';
+    'inline-flex items-center justify-center font-body font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-surface-400/50 disabled:opacity-50 disabled:pointer-events-none cursor-pointer select-none';
 
   return (
     <button

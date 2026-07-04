@@ -18,7 +18,7 @@ const AppearanceToggle = () => {
     <button
       onClick={() => dispatch(toggleAppearance())}
       aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
-      className="relative p-2 rounded-xl bg-surface-100 hover:bg-surface-200 dark:bg-surface-800 dark:hover:bg-surface-700 text-surface-600 dark:text-surface-300 transition-all duration-200 cursor-pointer overflow-hidden"
+      className="relative p-2 rounded-lg bg-surface-100 hover:bg-surface-200 dark:bg-surface-800 dark:hover:bg-surface-700 text-surface-600 dark:text-surface-400 transition-all duration-200 cursor-pointer overflow-hidden border border-surface-300 dark:border-[#5D5246]"
     >
       <span
         className={`block transition-all duration-300 ${
